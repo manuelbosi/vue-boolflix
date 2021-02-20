@@ -19,7 +19,7 @@ header .bg-dark {
     letter-spacing: 2px;
 }
 main {
-    margin-top: 100px;
+    margin-top: 5px;
 }
 main > #movie-container {
     border: 1px solid red;
@@ -30,5 +30,5 @@ main > #movie-container {
 }
 #movie-container > .card {
     min-height: 100px;
-    margin: 5px 5px;
+    margin: 5px 2px;
 }
