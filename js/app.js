@@ -6,22 +6,47 @@ new Vue({
     data : {
         list :  [],
         generalPosterPath : "https://image.tmdb.org/t/p/w185/",
-
-
+        filmName : '',
     },
 
     methods : {
         loadPopular() {
+            this.cleanList();
             axios.get(popular + apiKey)
                 .then(popularMovie => {
                 this.list = popularMovie.data.results;
-                    console.log(popularMovie.data.results)
-                for (let i = 0; i < popularMovie.data.results.length; i++) {
-                    const el = popularMovie.data.results[i];
-                    el.vote_average = Math.ceil(el.vote_average / 2)
-                }
+                this.convertVoteAverage();
             })
+        },
+
+        search() {
+            this.cleanList();
+            this.getList();
+        },
+
+        // Get all movies and tv show
+        getList() {
+            const url = "https://api.themoviedb.org/3/search/multi?";
+            this.cleanList()
+            axios.get(url + apiKey + "&query=" + this.filmName)
+                .then(multiList => {
+                    this.list = multiList.data.results;
+                    this.convertVoteAverage();
+            })
+        },
+
+        // Convert Vote Average
+        convertVoteAverage() {
+            this.list.forEach(el => {
+                el.vote_average = Math.ceil(el.vote_average / 2)
+            });
+        },
+
+        // Clean array list
+        cleanList() {
+            this.list = [];
         }
+
     },
 
     mounted: function() {

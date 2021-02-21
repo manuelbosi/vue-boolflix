@@ -26,25 +26,26 @@
                     <ul class="navbar-nav mr-auto">
                         <!-- use active class to change style of active link -->
                         <li class="nav-item">
-                            <a class="nav-link" href="#">POPULAR</a>
+                            <a class="nav-link" href="#" @click="loadPopular()">POPULAR</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">LATEST</a>
                         </li>
                     </ul>
-                    <form>
-                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    </form>
+                    <div id="search-box">
+                        <input class="form-control mr-sm-2" v-model="filmName" @keyup.enter="search" type="text">
+                        <i class ="fa fa-search "></i>
+                    </div>
                 </div>
             </nav>
         </header>
 
         <main>
+<!--            <h3 v-model="filmName">Results for: {{ filmName }}</h3>-->
             <div id="movie-container">
-                
                 <div class="mb-2 border-primary border rounded-bottom" v-for="film in list">
                     <img :src="generalPosterPath + film.poster_path" alt="poster_path" v-if="film.poster_path != null">
-                    <img alt="" src="https://bulma.io/images/placeholders/185x185.png" v-else>
+                    <img alt="" src="https://via.placeholder.com/185x250" v-else>
 
                     <div class="info-hover">
 
@@ -63,9 +64,9 @@
                             <span>{{ film.name }}</span>
                         </div>
 
-                        <div class="overview" v-if="film.overview != ''">
+                        <div class="overview" v-if="film.overview != '' && film.overview != undefined">
                             <h3 class="title">Overview:</h3>
-                            <p>{{ film.overview.substring(0, 100) }}...</p>
+                            <p>{{ film.overview.substring(0, 70) }}...</p>
                         </div>
 
                         <div class="vote">

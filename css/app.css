@@ -24,6 +24,34 @@ header .bg-dark {
     font-size: 30px;
     letter-spacing: 2px;
 }
+.collapse.navbar-collapse > #search-box {
+    position: relative;
+}
+.collapse.navbar-collapse > #search-box > input {
+    width: 50px;
+    transition: width 0.5s;
+    padding-right: 30px;
+    text-align: center;
+    color: grey;
+}
+.fa.fa-search {
+    position: absolute;
+    color: grey;
+    right: 15px;
+    bottom: 50%;
+    transform: translateY(50%);
+}
+.collapse.navbar-collapse > #search-box:hover > input {
+    width: 300px;
+}
+@media screen and (max-width: 992px) {
+    .collapse.navbar-collapse > #search-box > input:hover {
+        width: 0;
+    }
+    .collapse.navbar-collapse > #search-box > input {
+        width: 100%;
+    }
+}
 
 /* CONTENT */
 main {
@@ -36,10 +64,17 @@ main > #movie-container {
     flex-wrap: wrap;
     padding: 10px;
 }
+main > #movie-container > h3 {
+    display: block;
+}
 #movie-container > div {
     /*min-height: 100px;*/
     margin: 5px 10px;
     position: relative;
+}
+#movie-container > div > img {
+    height: 100%;
+    max-width: 100%;
 }
 .info-hover {
     position: absolute;
@@ -51,7 +86,6 @@ main > #movie-container {
     padding: 10px;
     opacity: 0;
     transition: opacity 1.2s;
-    max-height: 100%;
 }
 #movie-container > div:hover .info-hover {
     opacity: 1;
@@ -68,4 +102,7 @@ main > #movie-container {
 .info-hover h3 {
     margin-bottom: 0;
     font-weight: bold;
+}
+.info-hover span {
+    margin-bottom: 10px;
 }
