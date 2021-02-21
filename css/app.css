@@ -42,14 +42,15 @@ header .bg-dark {
     transform: translateY(50%);
 }
 .collapse.navbar-collapse > #search-box:hover > input,
-.collapse.navbar-collapse > #search-box > input:focus{
+.collapse.navbar-collapse > #search-box > input:focus {
     width: 300px;
 }
 @media screen and (max-width: 992px) {
-    .collapse.navbar-collapse > #search-box > input:hover {
-        width: 0;
-    }
     .collapse.navbar-collapse > #search-box > input {
+        width: 100%;
+    }
+    .collapse.navbar-collapse > #search-box:hover > input,
+    .collapse.navbar-collapse > #search-box > input:focus {
         width: 100%;
     }
 }
