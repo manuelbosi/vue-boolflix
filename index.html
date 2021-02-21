@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script> <!-- vue js -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="css/app.css">
     <title>Document</title>
 </head>
@@ -15,7 +17,7 @@
         <!--  HEADER: NAVBAR + SEARCH BOX -->
         <header>
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <a class="navbar-brand" href="#">BOOLFIX</a>
+                <a class="navbar-brand" href="index.html">BOOLFIX</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -40,33 +42,45 @@
         <main>
             <div id="movie-container">
                 
-                <div class="card mb-2">
-                    <img src="https://via.placeholder.com/250x300" alt="">
+                <div class="mb-2 border-primary border rounded-bottom" v-for="film in list">
+                    <img :src="generalPosterPath + film.poster_path" alt="poster_path" v-if="film.poster_path != null">
+                    <img alt="" src="https://bulma.io/images/placeholders/185x185.png" v-else>
+
+                    <div class="info-hover">
+
+                        <div v-if="film.title != undefined">
+                            <h3 class="title">Titolo:</h3>
+                            <span>{{ film.title }}</span>
+                        </div>
+
+                        <div v-if="film.original_title != undefined">
+                            <h3 class="title">Titolo originale:</h3>
+                            <span>{{ film.original_title }}</span>
+                        </div>
+
+                        <div v-else>
+                            <h3 class="title">Titolo:</h3>
+                            <span>{{ film.name }}</span>
+                        </div>
+
+                        <div class="overview" v-if="film.overview != ''">
+                            <h3 class="title">Overview:</h3>
+                            <p>{{ film.overview.substring(0, 100) }}...</p>
+                        </div>
+
+                        <div class="vote">
+                            <h3>Voto: {{ film.vote_average }}/5</h3>
+                            <i class="far fa-star" v-for="(star, index) in 5" :class="index+1 <= film.vote_average ? 'vote-average' : ''"></i>
+                        </div>
+                        <!-- <h3>{{ film.original_language }}</h3> -->
+                        <!-- <img class="flag" :src="generateFlag(film)" :alt="film.original_language"
+                          v-if="film.original_language.length !== 0">
+                        <img class="flag" src="img/flag_placeholder.svg" alt="" v-else-if="film.original_language === ''"> -->
+                    </div>
+
                 </div>
 
-                <div class="card mb-2">
-                    <img src="https://via.placeholder.com/250x300" alt="">
-                </div>
 
-                <div class="card mb-2">
-                    <img src="https://via.placeholder.com/250x300" alt="">
-                </div>
-
-                <div class="card mb-2">
-                    <img src="https://via.placeholder.com/250x300" alt="">
-                </div>
-
-                <div class="card mb-2">
-                    <img src="https://via.placeholder.com/250x300" alt="">
-                </div>
-
-                <div class="card mb-2">
-                    <img src="https://via.placeholder.com/250x300" alt="">
-                </div>
-
-                <div class="card mb-2">
-                    <img src="https://via.placeholder.com/250x300" alt="">
-                </div>
                 
             </div>
         </main>
