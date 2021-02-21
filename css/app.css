@@ -41,7 +41,8 @@ header .bg-dark {
     bottom: 50%;
     transform: translateY(50%);
 }
-.collapse.navbar-collapse > #search-box:hover > input {
+.collapse.navbar-collapse > #search-box:hover > input,
+.collapse.navbar-collapse > #search-box > input:focus{
     width: 300px;
 }
 @media screen and (max-width: 992px) {
