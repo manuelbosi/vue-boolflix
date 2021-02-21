@@ -34,7 +34,7 @@
                     </ul>
                     <div id="search-box">
                         <input class="form-control mr-sm-2" v-model="filmName" @keyup.enter="search" type="text">
-                        <i class ="fa fa-search "></i>
+                        <i class ="fa fa-search"></i>
                     </div>
                 </div>
             </nav>
@@ -42,8 +42,8 @@
 
         <main>
 <!--            <h3 v-model="filmName">Results for: {{ filmName }}</h3>-->
-            <div id="movie-container">
-                <div class="mb-2 border-primary border rounded-bottom" v-for="film in list">
+            <div id="movie-container" class="align-items-center">
+                <div class="mb-2" v-for="film in list">
                     <img :src="generalPosterPath + film.poster_path" alt="poster_path" v-if="film.poster_path != null">
                     <img alt="" src="https://via.placeholder.com/185x250" v-else>
 
