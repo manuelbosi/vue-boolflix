@@ -4,7 +4,7 @@ Tecnologie
 - HTML5
 - CSS3
 
-### Caratterisiche
+### Caratteristiche
 - Ricerca film tramite l'input in alto a destra
 - Visualizzazione informazioni e breve trama del film al passaggio del mouse sulla scheda del film
 
