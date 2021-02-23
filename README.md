@@ -12,4 +12,4 @@ Tecnologie
 <img src="https://raw.githubusercontent.com/manuelbosi/vue-boolflix/main/screenshot/boolfix_desktop.PNG" width="951" height="466">
 
 ### Versione Mobile
-![boolfix_mobile](https://raw.githubusercontent.com/manuelbosi/vue-boolflix/main/screenshot/boolfix_mobile.PNG)
+<img src="https://raw.githubusercontent.com/manuelbosi/vue-boolflix/main/screenshot/boolfix_mobile.PNG" width="228" height="385">
