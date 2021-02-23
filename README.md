@@ -5,7 +5,7 @@ Tecnologie
 - CSS3
 
 ## Descrizione
-Replica del famooso sito web di streaming di film
+Replica del famoso sito web di streaming di film
 
 ### Versione Desktop
 ![boolfix_desktop](https://raw.githubusercontent.com/manuelbosi/vue-boolflix/main/screenshot/boolfix_desktop.PNG)
